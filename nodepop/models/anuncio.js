@@ -17,6 +17,6 @@ anuncioSchema.statics.lista = function(filtros, skip, limit, select, sort) {
     return query.exec();
   }
 
-const Agente = mongoose.model("Anuncio", anuncioSchema)
+const Anuncio = mongoose.model("Anuncio", anuncioSchema)
 
-module.exports = Agente;
+module.exports = Anuncio;

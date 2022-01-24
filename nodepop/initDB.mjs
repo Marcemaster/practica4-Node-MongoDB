@@ -1,7 +1,25 @@
-// Este es un script de prueba, curso Mongoose Crash Course Youtube.
+"use strict";
 
-const mongoose = require("mongoose")
+import fsPromise from "fs/promises";
 
-mongoose.connect("mongodb://localhost/anuncios")
+import dbConnection from "./lib/connectMongoose.js";
+import Anuncio from "./models/anuncio.js";
 
-console.log("Hola!")
+dbConnection.once("open", () => {
+    main().catch((err) => console.log("Hubo un error", err));
+});
+
+async function main() {
+    await initAnuncios();
+    dbConnection.close();
+}
+
+async function initAnuncios() {
+    const deleted = await Anuncio.deleteMany();
+    console.log(`Eliminados ${deleted.deletedCount} anuncios.`);
+
+    const data = await fsPromise.readFile("initDB.anuncios.json", "utf-8");
+    const anunciosData = JSON.parse(data);
+    const anuncios = await Anuncio.insertMany(anunciosData);
+    console.log(`Creados ${anuncios.length} anuncios.`);
+}
