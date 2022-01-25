@@ -1,6 +1,6 @@
 [
     {
-        "nombre": "Pelota de Basket",
+        "nombre": "Pelota",
         "venta": false,
         "precio": 10.0,
         "foto": "basket.jpg",

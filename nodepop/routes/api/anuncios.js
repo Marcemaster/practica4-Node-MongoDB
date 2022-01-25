@@ -17,7 +17,6 @@ router.get("/", async (req, res, next) => {
         const limit = req.query.limit;
         const select = req.query.select;
         const sort = req.query.sort;
-
         const filtros = {};
 
         if (nombre) {filtros.nombre = nombre;}
@@ -33,13 +32,5 @@ router.get("/", async (req, res, next) => {
         next(err);
     }
 });
-
-
-
-
-
-
-
-
 
 module.exports = router;
