@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-
+var anunciosRouter = require('./routes/api/anuncios');
 var indexRouter = require('./routes/index');
 
 var app = express();
@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
  * Rutas de mi API
  */
 
- app.use('/api/anuncios', require('./routes/api/anuncios'));
+ app.use('/api/anuncios', anunciosRouter);
 
 /**
  * Rutas de mi website

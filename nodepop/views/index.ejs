@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+      <title><%= title %></title>
+      <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-
-    <%= anuncios %>
+      <h1><%= title %></h1>
+      <p>Welcome to <%= title %></p>
+      <% for (let i = 0; i < anuncios.length; i++) { %>
+        <h3> <%= anuncios[i].nombre %></h3>
+        <% if (anuncios[i].venta === false) { %>
+          <li> Se busca </li>
+        <% } else { %>
+          <li> Se vende </li>
+        <% } %>
+        <li> Precio: <%= anuncios[i].precio %> €</li>
+        <li> Foto: <%= anuncios[i].foto %></a></li>
+        <li>Tags: <%= anuncios[i].tags %> </li>
+      <% } %>
   </body>
 </html>
