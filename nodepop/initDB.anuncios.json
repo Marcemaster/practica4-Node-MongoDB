@@ -28,7 +28,7 @@
         "tags": ["motor", "work"]
     },
     {
-        "nombre": "Iphone X",
+        "nombre": "Iphone",
         "venta": false,
         "precio": 100.0,
         "foto": "http://localhost:3000/images/iphone.jpg",
@@ -42,14 +42,14 @@
         "tags": ["lifestyle", "motor"]
     },
     {
-        "nombre": "Máquina de Escribir Retro",
+        "nombre": "Máquina-de-Escribir",
         "venta": true,
         "precio": 75.0,
         "foto": "http://localhost:3000/images/maquina-escribir.jpg",
         "tags": ["lifestyle", "work"]
     },
     {
-        "nombre": "Figura Luffy One Piece",
+        "nombre": "Figura-Luffy",
         "venta": false,
         "precio": 9.0,
         "foto": "http://localhost:3000/images/one-piece.jpg",

@@ -3,20 +3,49 @@
   <head>
       <title><%= title %></title>
       <link rel="stylesheet" href="/stylesheets/style.css" />
+      <script>
+        function myFunction() {
+          var input, filter, div, li, a, i, txtValue;
+          input = document.getElementById('myInput');
+          filter = input.value;
+          div = document.getElementsByClassName("anuncio");
+          li = div.getElementsByClassName('li');
+        
+          // Loop through all list items, and hide those who don't match the search query
+          for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByClassName("nombre");
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.indexOf(filter) > -1) {
+              li[i].style.display = "";
+            } else {
+              li[i].style.display = "none";
+            }
+          }
+        }
+      </script>
   </head>
   <body>
       <h1><%= title %></h1>
-      <p>Welcome to <%= title %></p>
-      <% for (let i = 0; i < anuncios.length; i++) { %>
-        <h3> <%= anuncios[i].nombre %></h3>
-        <% if (anuncios[i].venta === false) { %>
-          <li> Se busca </li>
-        <% } else { %>
-          <li> Se vende </li>
-        <% } %>
-        <li> Precio: <%= anuncios[i].precio %> €</li>
-        <li> Foto: <%= anuncios[i].foto %></a></li>
-        <li>Tags: <%= anuncios[i].tags %> </li>
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscador de anuncios">
+      <% if (anuncios.length === 0) { %>
+        <p> Ningún anuncio coincide con tu búsqueda.</p>
+      <% } else {%>
+        <h2>Aquí tienes el listado de anuncios:</h2>
+        <div class="wrapper">
+          <% for (let i = 0; i < anuncios.length; i++) { %>
+            <div class="anuncio">
+              <h3 class="nombre"> <%= anuncios[i].nombre %></h3>
+              <img src=<%= anuncios[i].foto %> alt="">
+              <% if (anuncios[i].venta === false) { %>
+                <li> Se busca </li>
+                <% } else { %>
+                  <li> Se vende </li>
+                  <% } %>
+                  <li><span>Precio:</span> <%= anuncios[i].precio %> €</li>
+                  <li><span>Tags:</span> <%= anuncios[i].tags %> </li>
+                </div>
+                <% } %>
+              </div>
+            </body>
       <% } %>
-  </body>
 </html>
