@@ -32,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
  */
 
  app.use('/api/anuncios', anunciosRouter);
+ app.use('/api/tags', anunciosRouter);
 
 /**
  * Rutas de mi website

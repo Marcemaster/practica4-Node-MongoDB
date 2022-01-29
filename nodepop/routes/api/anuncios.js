@@ -52,4 +52,21 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/tags", async (req,res,next) => {
+  try {
+    const anuncios = await Anuncio.lista();
+    let tag_list = []
+    for (let i = 0; i < anuncios.length; i++){
+      tag_list.push(anuncios[i].tags)
+    }
+    tag_list = [].concat.apply([], tag_list)
+    tag_list = [... new Set(tag_list)]
+
+    res.json({ results: tag_list });
+  } catch (err) {
+    next(err);
+  }
+
+
+})
 module.exports = router;

@@ -6,13 +6,18 @@ El servicio contiene anuncios de compra o venta de artículos y permite filtrar 
 
 ## Comenzando 🚀
 
-_Para probar el proyecto únicamente es necesario instalar las dependencias con el comando:_
+_Lo primero será acceder a al carpeta del proyecto:_
+
+```
+cd nodepop
+```
+_Para probar el proyecto únicamente es necesario instalar las dependencias:_
 
 ```
 npm install
 ```
 
-_A continuación cargamos la base de datos a través del script de inicialización_
+_A continuación cargamos la base de datos a través del script de inicialización:_
 
 ```
 node initDB.mjs
@@ -51,10 +56,20 @@ http://localhost:3000/api/anuncios
 
 _La cual nos devuelve un JSON con todos los anuncios (También podemos aplicar los filtros)_
 
+http://localhost:3000/api/anuncios/tags
+
+_Devuelve un JSON con todos los tags de los anuncios en la base de datos_
+
 ### Ejemplo de peticiones con filtros ⌨️
 
+_Ordenar anuncios por nombre, de máximo 50€, que contengan el tag "lifestyle" y limitado a 2 anuncios:_
+
+http://localhost:3000/?sort=nombre&precioMin=50&tags=lifestyle&limit=2
 
 
+_Anuncios en venta, ordenados por precio_
+
+http://localhost:3000/?sort=precio&venta=true
 
 ## Construido con 🛠️
 
