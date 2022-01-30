@@ -3,19 +3,19 @@
   <head>
       <title><%= title %></title>
       <link rel="stylesheet" href="/stylesheets/style.css" />
+      <link rel="shortcut icon" type="image/jpg" href="https://img.icons8.com/color/48/000000/n-cute.png"/>
       <script>
         function myFunction() {
-          var input, filter, div, li, a, i, txtValue;
-          input = document.getElementById('myInput');
-          filter = input.value;
-          div = document.getElementsByClassName("anuncio");
-          li = div.getElementsByClassName('li');
-        
+          let input, filter, ul, li, a, i;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          ul = document.getElementById("wrapper");
+          li = ul.getElementsByClassName("anuncio");
+
           // Loop through all list items, and hide those who don't match the search query
           for (i = 0; i < li.length; i++) {
-            a = li[i].getElementsByClassName("nombre");
-            txtValue = a.textContent || a.innerText;
-            if (txtValue.indexOf(filter) > -1) {
+            a = li[i].getElementsByClassName("nombre")[0];
+            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
               li[i].style.display = "";
             } else {
               li[i].style.display = "none";
@@ -31,7 +31,7 @@
         <p> Ningún anuncio coincide con tu búsqueda.</p>
       <% } else {%>
         <h2>Aquí tienes el listado de anuncios:</h2>
-        <div class="wrapper">
+        <div class="wrapper" id="wrapper">
           <% for (let i = 0; i < anuncios.length; i++) { %>
             <div class="anuncio">
               <h3 class="nombre"> <%= anuncios[i].nombre %></h3>

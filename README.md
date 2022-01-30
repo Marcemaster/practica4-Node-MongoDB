@@ -4,6 +4,11 @@ En esta práctica desarrollamos el API que se ejecutará en el servidor de un se
 
 El servicio contiene anuncios de compra o venta de artículos y permite filtrar anuncios por varios criterios (Nombre, venta, precio, tags.)
 
+Además, permite la creación de anuncios y la extracción una lista de los "Tags" incluidos.
+
+Por último, se ha incoporado una barra de buscador por nombre en la pantalla inicial para filtrar los anuncios por nombre a través del teclado.
+
+
 ## Comenzando 🚀
 
 _Lo primero será acceder a al carpeta del proyecto:_
@@ -29,6 +34,7 @@ _Por último, corremos la App con el comando:_
 nodemon app.js
 ```
 
+
 ## Funcionamiento ⚙️
 
 _Con el servidor corriendo podemos acceder a la ruta:_
@@ -48,17 +54,27 @@ _Esta lista de anuncios podemos fitrarla a través de la barra de navegación ut
 * **tags** // Filtrar por etiquetas
 * **venta** // Filtrar por producto en venta o en búsqueda
 
+
 ### Rutas 🖇️
 
-_También podemos acceder directamente a al API con la ruta _
+_También podemos acceder directamente a al API con la ruta: _
 
 http://localhost:3000/api/anuncios
 
-_La cual nos devuelve un JSON con todos los anuncios (También podemos aplicar los filtros)_
+_La cual nos devuelve un JSON con todos los anuncios (En esta ruta también podemos aplicar los filtros)_
+
+
+_Para obtener un JSON con todos los tags de los anuncios en la base de datos accedemos a la ruta:_
 
 http://localhost:3000/api/anuncios/tags
 
-_Devuelve un JSON con todos los tags de los anuncios en la base de datos_
+
+_Por último, podemos hacer peticiones POST a la ruta:_
+
+http://localhost:3000/api/anuncios
+
+_La cual nos creará un nuevo anuncio y lo guardará en la base de datos, o bien nos devolverá una respuesta con los campos a rellenar para poder crear el anuncio correctamente._
+
 
 ### Ejemplo de peticiones con filtros ⌨️
 
@@ -71,12 +87,14 @@ _Anuncios en venta, ordenados por precio_
 
 http://localhost:3000/?sort=precio&venta=true
 
+
 ## Construido con 🛠️
 
 * Node
 * MongoDB
 * Express
 * EJS
+
 
 ## Autor ✒️
 
